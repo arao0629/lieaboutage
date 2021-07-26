@@ -9,9 +9,6 @@
 [YearMonthDate.java](https://github.com/arao0629/lieaboutage/blob/main/src/main/java/guiapp/YearMonthDate.java)  
 [TextLimit.java](https://github.com/arao0629/lieaboutage/blob/main/src/main/java/guiapp/TextLimit.java)  
 
-## アプリケーション名  
-  guitest
-
 ## 種類  
   GUIアプリ
 
