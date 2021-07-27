@@ -30,7 +30,7 @@ public class YearOfBirthMain extends JFrame implements ActionListener {
 	 *
 	 */
 	private static final long serialVersionUID = 1L;
-
+	
 	JTextField biryearField, birmonthField, birdateField, fakeageField;
 	JLabel biryearlabel, birmonthlabel, birdatelabel, fakeagelabel, reallabel, differlabel;
 
@@ -38,10 +38,10 @@ public class YearOfBirthMain extends JFrame implements ActionListener {
 	JTextPane labelarea;
 
 	JButton b1, b2, b3;
-	ImageIcon etoicon;
+	ImageIcon etoicon = null;
 	JPanel panel1;
 
-	YearMonthDate ymd;
+	YearMonthDate ymd = new YearMonthDate();
 	String faStr = "";
 	String bdStr = "";
 	int realage;
@@ -51,47 +51,32 @@ public class YearOfBirthMain extends JFrame implements ActionListener {
 	YearOfBirthMain() {
 		super("生まれ年説明書");
 		setSize(450, 730);
-
-		ymd = new YearMonthDate();
 		
 		List<JTextField> fields = new ArrayList<JTextField>();
-		fields.add(biryearField);
-		fields.add(birmonthField);
-		fields.add(birdateField);
-		fields.add(fakeageField);
-
+		for(int i=0;i<4;i++) {
+			fields.add(new JTextField(""));
+		}
 		for(JTextField f : fields){
-			f = new JTextField("");
 			f.setAlignmentX(0.5f);
 		}
-		// biryearField = new JTextField("");
-		// biryearField.setAlignmentX(0.5f);
+		
+		this.biryearField = fields.get(0);
+		this.birmonthField = fields.get(1);
+		this.birdateField = fields.get(2);
+		this.fakeageField = fields.get(3);
 		biryearField.setDocument(new TextLimit(4));
-		// birmonthField = new JTextField("");
-		// birmonthField.setAlignmentX(0.5f);
 		birmonthField.setDocument(new TextLimit(2));
-		// birdateField = new JTextField("");
-		// birdateField.setAlignmentX(0.5f);
 		birdateField.setDocument(new TextLimit(2));
-		// fakeageField = new JTextField("");
-		// fakeageField.setAlignmentX(0.5f);
 		fakeageField.setDocument(new TextLimit(2));
+		
 		biryearlabel = new JLabel("あなたの実際の誕生年を半角数字で入力してください。 (例)1995");
-		// biryearlabel.setAlignmentX(0.5f);
 		birmonthlabel = new JLabel("あなたの誕生月を半角数字で入力してください。 (例)4");
-		// birmonthlabel.setAlignmentX(0.5f);
 		birdatelabel = new JLabel("あなたの誕生日の日付を半角数字で入力してください。 (例)20");
-		// birdatelabel.setAlignmentX(0.5f);
 		fakeagelabel = new JLabel("何歳と自称したいですか？半角数字で入力してください。 (例)21");
-		// fakeagelabel.setAlignmentX(0.5f);
 		reallabel = new JLabel("");
-		// reallabel.setAlignmentX(0.5f);
 		differlabel = new JLabel("");
-		// differlabel.setAlignmentX(0.5f);
 		labelarea = new JTextPane();
 		iconlabel = new JLabel(etoicon);
-		// iconlabel.setAlignmentX(0.5f);
-		
 		List<JLabel> labels = new ArrayList<JLabel>();
 		labels.add(biryearlabel);
 		labels.add(birmonthlabel);
@@ -100,7 +85,6 @@ public class YearOfBirthMain extends JFrame implements ActionListener {
 		labels.add(reallabel);
 		labels.add(differlabel);
 		labels.add(iconlabel);
-
 		for(JLabel l : labels){
 			l.setAlignmentX(0.5f);
 		}
