@@ -8,8 +8,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -51,34 +53,57 @@ public class YearOfBirthMain extends JFrame implements ActionListener {
 		setSize(450, 730);
 
 		ymd = new YearMonthDate();
+		
+		List<JTextField> fields = new ArrayList<JTextField>();
+		fields.add(biryearField);
+		fields.add(birmonthField);
+		fields.add(birdateField);
+		fields.add(fakeageField);
 
-		biryearField = new JTextField("");
-		biryearField.setAlignmentX(0.5f);
+		for(JTextField f : fields){
+			f = new JTextField("");
+			f.setAlignmentX(0.5f);
+		}
+		// biryearField = new JTextField("");
+		// biryearField.setAlignmentX(0.5f);
 		biryearField.setDocument(new TextLimit(4));
-		birmonthField = new JTextField("");
-		birmonthField.setAlignmentX(0.5f);
+		// birmonthField = new JTextField("");
+		// birmonthField.setAlignmentX(0.5f);
 		birmonthField.setDocument(new TextLimit(2));
-		birdateField = new JTextField("");
-		birdateField.setAlignmentX(0.5f);
+		// birdateField = new JTextField("");
+		// birdateField.setAlignmentX(0.5f);
 		birdateField.setDocument(new TextLimit(2));
-		fakeageField = new JTextField("");
-		fakeageField.setAlignmentX(0.5f);
+		// fakeageField = new JTextField("");
+		// fakeageField.setAlignmentX(0.5f);
 		fakeageField.setDocument(new TextLimit(2));
 		biryearlabel = new JLabel("あなたの実際の誕生年を半角数字で入力してください。 (例)1995");
-		biryearlabel.setAlignmentX(0.5f);
+		// biryearlabel.setAlignmentX(0.5f);
 		birmonthlabel = new JLabel("あなたの誕生月を半角数字で入力してください。 (例)4");
-		birmonthlabel.setAlignmentX(0.5f);
+		// birmonthlabel.setAlignmentX(0.5f);
 		birdatelabel = new JLabel("あなたの誕生日の日付を半角数字で入力してください。 (例)20");
-		birdatelabel.setAlignmentX(0.5f);
+		// birdatelabel.setAlignmentX(0.5f);
 		fakeagelabel = new JLabel("何歳と自称したいですか？半角数字で入力してください。 (例)21");
-		fakeagelabel.setAlignmentX(0.5f);
+		// fakeagelabel.setAlignmentX(0.5f);
 		reallabel = new JLabel("");
-		reallabel.setAlignmentX(0.5f);
+		// reallabel.setAlignmentX(0.5f);
 		differlabel = new JLabel("");
-		differlabel.setAlignmentX(0.5f);
+		// differlabel.setAlignmentX(0.5f);
 		labelarea = new JTextPane();
 		iconlabel = new JLabel(etoicon);
-		iconlabel.setAlignmentX(0.5f);
+		// iconlabel.setAlignmentX(0.5f);
+		
+		List<JLabel> labels = new ArrayList<JLabel>();
+		labels.add(biryearlabel);
+		labels.add(birmonthlabel);
+		labels.add(birdatelabel);
+		labels.add(fakeagelabel);
+		labels.add(reallabel);
+		labels.add(differlabel);
+		labels.add(iconlabel);
+
+		for(JLabel l : labels){
+			l.setAlignmentX(0.5f);
+		}
 
 		b1 = new JButton("生年月日確定");
 		b1.setFont(new Font("Monospaced", Font.PLAIN, 12));
